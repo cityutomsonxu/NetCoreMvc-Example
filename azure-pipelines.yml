@@ -13,9 +13,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: |
+- script:
     dotnet build --configuration $(buildConfiguration)
+    displayName: 'dotnet build $(buildConfiguration)'
+
     dotnet test NetCoreMvc-Example-Test --configuration $(buildConfiguration) --logger trx
+    displayName: 'Run Test'
+
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
