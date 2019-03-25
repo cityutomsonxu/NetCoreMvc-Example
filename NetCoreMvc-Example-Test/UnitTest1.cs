@@ -12,7 +12,7 @@ namespace NetCoreMvc_Example_Test
         {
             HomeController controller = new HomeController();
             ViewResult result = controller.Index() as ViewResult;
-            Assert.AreEqual("this is home page 2", result.ViewData["Message"]);
+            Assert.AreEqual("this is home page", result.ViewData["Message"]);
         }
     }
 }
