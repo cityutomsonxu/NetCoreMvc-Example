@@ -17,11 +17,6 @@ steps:
     dotnet build --configuration $(buildConfiguration)
     dotnet test NetCoreMvc-Example-Test --configuration $(buildConfiguration) --logger trx
 
-- task: PublishTestResults@2
-  condition: succeededOrFailed()
-  inputs:
-    testRunner: VSTest
-    testResultsFiles: '**/*.trx'
 
   displayName: 'dotnet build $(buildConfiguration)'
 
