@@ -19,8 +19,8 @@ steps:
 - script: dotnet test NetCoreMvc-Example-Test --configuration $(buildConfiguration) --logger trx --collect "Code coverage"
   displayName: 'dotnet test $(buildConfiguration)'
 
-- script: dotnet publish --configuration $(buildConfiguration) --output $BUILD_ARTIFACTSTAGINGDIRECTORY
-  displayName: 'dotnet publish $(buildConfiguration) to folder $BUILD_ARTIFACTSTAGINGDIRECTORY'
+#- script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+#  displayName: 'dotnet publish $(buildConfiguration) to folder $(Build.ArtifactStagingDirectory)'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
@@ -28,4 +28,10 @@ steps:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
 
-- task: PublishBuildArtifacts@1
+#- task: PublishBuildArtifacts@1
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
