@@ -19,8 +19,8 @@ steps:
 - script: dotnet test NetCoreMvc-Example-Test --configuration $(buildConfiguration) --logger trx --collect "Code coverage"
   displayName: 'dotnet test $(buildConfiguration)'
 
-- script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
-  displayName: 'dotnet publish $(buildConfiguration) to folder $(Build.ArtifactStagingDirectory)'
+- script: dotnet publish --configuration $(buildConfiguration) --output $BUILD_ARTIFACTSTAGINGDIRECTORY
+  displayName: 'dotnet publish $(buildConfiguration) to folder $BUILD_ARTIFACTSTAGINGDIRECTORY'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
