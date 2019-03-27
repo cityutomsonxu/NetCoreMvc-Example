@@ -32,3 +32,6 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
   displayName: 'Publish web app as zip file'
+
+
+- task: PublishBuildArtifacts@1
