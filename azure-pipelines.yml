@@ -7,8 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-16.04'
-#  vmImage: 'vs2017-win2016'
+  vmImage: 'vs2017-win2016'
 
 variables:
   buildConfiguration: 'Release'
@@ -20,20 +19,9 @@ steps:
 - script: dotnet test NetCoreMvc-Example-Test --configuration $(buildConfiguration) --logger trx --collect "Code coverage"
   displayName: 'dotnet test $(buildConfiguration)'
 
-#- script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
-#  displayName: 'dotnet publish $(buildConfiguration) to folder $(Build.ArtifactStagingDirectory)'
-
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
-
-- task: PublishBuildArtifacts@1
