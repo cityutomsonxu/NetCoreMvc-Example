@@ -16,7 +16,9 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: echo $(System.ArtifactsDirectory)
+- script: |
+    echo $(System.ArtifactsDirectory)
+    echo $(Build.ArtifactStagingDirectory)
   displayName: 'Output Var'
 
 - task: DotNetCoreCLI@2
