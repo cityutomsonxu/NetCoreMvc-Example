@@ -38,4 +38,4 @@ steps:
   displayName: 'Publish web app as zip file'
 
 
-#- task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@1
