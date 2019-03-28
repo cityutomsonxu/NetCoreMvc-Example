@@ -38,7 +38,4 @@ steps:
   displayName: 'Publish web app as zip file'
 
 
-- task: PublishBuildArtifacts@1
-
-- script: echo 
-  displayName: 'dotnet build $(buildConfiguration)'
+#- task: PublishBuildArtifacts@1
