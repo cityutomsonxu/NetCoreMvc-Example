@@ -42,4 +42,5 @@ steps:
   inputs:
     azureSubscription: 'Tomson Azure Service Connection'
     WebAppName: 'tomsonxu1'
+    TakeAppOfflineFlag: true
     Package: $(System.ArtifactsDirectory)/**/*.zip
