@@ -37,3 +37,9 @@ steps:
     zipAfterPublish: True
   displayName: 'Publish web app as zip file'
 
+
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: 'Tomson Azure Service Connection'
+    WebAppName: 'tomsonxu1'
+    Package: $(System.ArtifactsDirectory)/**/*.zip
