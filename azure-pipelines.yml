@@ -42,5 +42,5 @@ steps:
   inputs:
     azureSubscription: 'Tomson Azure Service Connection'
     WebAppName: 'tomsonxu1'
-    VirtualApplication: '/site/wwwroot/folder1'
+    VirtualApplication: 'folder1'
     Package: $(System.ArtifactsDirectory)/**/*.zip
