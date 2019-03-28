@@ -37,5 +37,3 @@ steps:
     zipAfterPublish: True
   displayName: 'Publish web app as zip file'
 
-
-- task: PublishBuildArtifacts@1
